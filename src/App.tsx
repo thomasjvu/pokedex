@@ -64,14 +64,14 @@ function App() {
                             ) : null}
                         </div>
                         <p id="pokemonId">ID: {pokemonData.id} </p>
+                            <h3>Types:</h3>
+                            <ul>
+                                {pokemonTypes.map((type) => (
+                                    <li key={type}>{type.toUpperCase()}</li>
+                                ))}
+                            </ul>
                         <p id="pokemonHeight">Height: {pokemonData.height / 10} m</p>
                         <p id="pokemonWeight">Weight: {pokemonData.weight / 10} kg</p>
-                        <h3>Types:</h3>
-                        <ul>
-                            {pokemonTypes.map((type) => (
-                                <li key={type}>{type.toUpperCase()}</li>
-                            ))}
-                        </ul>
                     </div>
                 )
             )}

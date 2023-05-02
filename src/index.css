@@ -9,6 +9,7 @@
     --pokemon-red: #e4000f;
     --pokemon-blue: #3466af;
     --pokemon-yellow: #ffcb05;
+    --nintendo-gray: #646464;
     
     font-family: "Pokemon Classic", monospace;
     line-height: 1.5;
@@ -45,8 +46,11 @@ body {
 
 h1 {
     font-size: 3.2em;
-    line-height: 1.1;
+    line-height: 2;
     text-align: center;
+}
+h3 {
+    font-size: 1rem;
 }
 
 button {
@@ -92,7 +96,7 @@ button:focus-visible {
 }
 
 label {
-    font-weight: bold;
+    color: var(--nintendo-gray);
     text-transform: uppercase;
 }
 input {
@@ -147,8 +151,16 @@ input:focus {
 
 footer {
     margin-top: 50px;
-    border-top: 1px solid #797979;
+    border-top: 1px solid var(---nintendo-gray);
 }
 footer p {
-    color: #797979;
+    color: var(--nintendo-gray);
+    text-transform: uppercase;
+}
+
+.subfooter {
+    color: var(--nintendo-gray);
+    text-align: center;
+    font-size: 0.65rem;
+    text-transform: uppercase;
 }
