@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Loader from "./components/Loader";
+import Sound from './assets/audio/pokedex-sound.mp3'
 
 interface PokemonData {
     name: string;
@@ -18,12 +19,17 @@ function App() {
     const [pokemonTypes, setPokemonTypes] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
+    const playSound = () => {
+        const audio = new Audio(Sound)
+        audio.play()
+    }
+
     const getPokemonData = () => {
         setIsLoading(true);
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                playSound();
                 setPokemonData(data);
                 setPokemonTypes(data.types.map((type: any) => type.type.name));
                 setIsLoading(false);
@@ -55,7 +61,7 @@ function App() {
                 <Loader />
             ) : (
                 pokemonData && (
-                    <div id="pokemonContainer">
+                    <main id="pokemonContainer">
                         <h2 id="pokemonName">{pokemonData.name.toUpperCase()}</h2>
                         <div className="pokemonImages">
                             <img id="pokemonImageFront" src={pokemonData.sprites.front_default} alt="`${pokemonData.name} Front`" />
@@ -72,7 +78,7 @@ function App() {
                             </ul>
                         <p id="pokemonHeight">Height: {pokemonData.height / 10} m</p>
                         <p id="pokemonWeight">Weight: {pokemonData.weight / 10} kg</p>
-                    </div>
+                    </main>
                 )
             )}
         </div>
